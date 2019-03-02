@@ -21,6 +21,20 @@ for (var i = 0; i < buttonItems.length; i++) {
   $(".button-box").append(newBtn);
 }
 
+// On search, the input will create a new functioning button
+$(document).on("click", "#create-new", function() {
+  // Get value from user input
+  var input = $("#user-input")
+    .val()
+    .trim();
+  // Create new button element
+  var newSearchBtn = $("<button>");
+  // Text of button is same as input
+  newSearchBtn.text(input);
+  newSearchBtn.attr("class", "gif-btn");
+  $(".button-box").append(newSearchBtn);
+});
+
 // On button click, populate page with gifs
 $(document).on("click", ".gif-btn", function() {
   // Empty gif-box on new click
