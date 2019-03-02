@@ -1,0 +1,28 @@
+/* HEADER */
+.header-bar {
+  background-color: gray;
+  padding: 2rem;
+}
+
+/* GIF BUTTONS */
+
+.gif-btn {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.button-box {
+  display: block;
+  background-color: gray;
+}
+
+.button-search {
+  display: block;
+  background-color: lightgray;
+}
+
+input {
+  padding: 1rem;
+  font-size: 1.4rem;
+}
