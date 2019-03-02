@@ -26,3 +26,16 @@ input {
   padding: 1rem;
   font-size: 1.4rem;
 }
+
+/* GIF BOX */
+
+img {
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.gif-box p {
+  text-align: center;
+}
