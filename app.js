@@ -3,6 +3,9 @@ var buttonItems = ["Dog", "Cat", "Fox", "Snake", "Otter", "Bear"];
 
 var gifLimit = 10;
 
+var animatedSrc;
+var stillSrc;
+
 // Populate button-box with array elements
 for (var i = 0; i < buttonItems.length; i++) {
   // Create button element
@@ -49,6 +52,9 @@ $(document).on("click", ".gif-btn", function() {
     console.log(response);
     // Loop through gifs (based on defined limit)
     for (var i = 0; i < gifLimit; i++) {
+      // Get sources
+      animatedSrc = response.data[i].images.original.url;
+      stillSrc = response.data[i].images.original_still.url;
       // Container to hold both gif and rating info
       var newDiv = $("<div>");
       newDiv.addClass("gif-div");
@@ -56,7 +62,11 @@ $(document).on("click", ".gif-btn", function() {
       var gifURL = response.data[i].images.original_still.url;
       // Create new image element and set source
       var newGif = $("<img>");
+      newGif.attr("class", "gif");
       newGif.attr("src", gifURL);
+      newGif.attr("data-still", stillSrc);
+      newGif.attr("data-animate", animatedSrc);
+      newGif.attr("data-state", "still");
       // Append elements to created div
       $(newDiv).append(newGif);
       $(newDiv).append("<p>Rating: " + response.data[i].rating + "</p>");
@@ -64,4 +74,17 @@ $(document).on("click", ".gif-btn", function() {
       $(".gif-box").append(newDiv);
     }
   });
+});
+
+// On still image click, animate!
+$(document).on("click", ".gif", function() {
+  if ($(this).attr("data-state") === "still") {
+    var animatedState = $(this).attr("data-animate");
+    $(this).attr("src", animatedState);
+    $(this).attr("data-state", "animated");
+  } else if ($(this).attr("data-state") === "animated") {
+    var stillState = $(this).attr("data-still");
+    $(this).attr("src", stillState);
+    $(this).attr("data-state", "still");
+  }
 });
