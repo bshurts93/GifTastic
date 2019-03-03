@@ -38,4 +38,12 @@ img {
 
 .gif-box p {
   text-align: center;
+  padding: 0.4rem;
+  text-transform: uppercase;
+}
+
+.gif-div {
+  background-color: pink;
+  width: 500px;
+  margin: 0 auto;
 }

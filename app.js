@@ -1,11 +1,5 @@
 // Array of premade buttons
-var buttonItems = [
-  "Peter Griffin",
-  "Lois Griffin",
-  "Stewie Griffin",
-  "Brian Griffin",
-  "Meg Griffin"
-];
+var buttonItems = ["Dog", "Cat", "Fox", "Snake", "Otter", "Bear"];
 
 var gifLimit = 10;
 
@@ -52,13 +46,22 @@ $(document).on("click", ".gif-btn", function() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    console.log(response);
     // Loop through gifs (based on defined limit)
     for (var i = 0; i < gifLimit; i++) {
-      var gifURL = response.data[i].images.original.url;
+      // Container to hold both gif and rating info
+      var newDiv = $("<div>");
+      newDiv.addClass("gif-div");
+      // Retrieve url info from ajax request
+      var gifURL = response.data[i].images.original_still.url;
+      // Create new image element and set source
       var newGif = $("<img>");
       newGif.attr("src", gifURL);
-      $(".gif-box").append(newGif);
-      $(".gif-box").append("<p>Rating: " + response.data[i].rating + "</p>");
+      // Append elements to created div
+      $(newDiv).append(newGif);
+      $(newDiv).append("<p>Rating: " + response.data[i].rating + "</p>");
+      // Send div to DOM
+      $(".gif-box").append(newDiv);
     }
   });
 });
