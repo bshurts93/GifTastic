@@ -1,5 +1,10 @@
 // Array of premade buttons
-var buttonItems = ["Dog", "Cat", "Fox", "Snake", "Otter", "Bear"];
+var buttonItems = [
+  "Peter Griffin",
+  "Lois Griffin",
+  "Brian Griffin",
+  "Stewie Griffin"
+];
 
 var gifLimit = 10;
 

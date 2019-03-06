@@ -1,3 +1,9 @@
+/* GLOBAL */
+body {
+  background-image: linear-gradient(45deg, black, gray);
+  background-attachment: fixed;
+}
+
 /* HEADER */
 .header-bar {
   background-color: gray;
@@ -43,7 +49,11 @@ img {
 }
 
 .gif-div {
-  background-color: pink;
+  background-color: #e67946;
   width: 500px;
   margin: 0 auto;
+}
+
+.gif-div:last-of-type {
+  margin-bottom: 10rem;
 }
